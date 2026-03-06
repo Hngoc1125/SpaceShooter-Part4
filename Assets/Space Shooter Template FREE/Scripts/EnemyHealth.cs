@@ -2,9 +2,13 @@ using UnityEngine;
 
 public class EnemyHealth : Health
 {
+    public static int LivingEnemyCount;
+
+    private void Awake() => LivingEnemyCount++;
+
     protected override void Die()
     {
-        base.Die(); 
-        Debug.Log("Enemy died - Game Over!"); 
+        LivingEnemyCount--;
+        base.Die();
     }
 }
